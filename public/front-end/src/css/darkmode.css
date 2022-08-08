@@ -1,5 +1,5 @@
 #darkmode {
-    background-color: #121212;
+    background-color: #222;
 }
 #darkmode h1 {
     color: white;
@@ -8,16 +8,18 @@
     color: var(--neutral50);
 }
 #darkmode .navbar {
-    background-color: var(--neutral100);
+    background-color: #222;
     box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.12);
 }
 #darkmode .form-control {
-    background-color: transparent;
+    background-color: #222;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.08);
     color: var(--neutral10);
+    border: 1px solid var(--primaryColorTrooper);
 }
 #darkmode .button-icon {
     background-color: transparent;
-    outline: 1px solid var(--neutral10);
+    outline: 1px solid var(--primaryColorTrooper);
 }
 #darkmode .offcanvas-lg {
     color: var(--neutral10);
@@ -28,4 +30,7 @@
 }
 #darkmode .title-xtra-large:hover {
     color: var(--neutral60);
+}
+#darkmode .btn-darkmode {
+    box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.1);
 }
