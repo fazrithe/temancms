@@ -1,0 +1,22 @@
+#darkmode {
+  background-color: #121212;
+}
+#darkmode h1 {
+  color: white;
+}
+#darkmode .navbar {
+  background-color: var(--neutral100);
+  box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.12);
+}
+#darkmode .form-control {
+  background-color: transparent;
+  color: var(--neutral10);
+}
+#darkmode .button-icon {
+  background-color: transparent;
+  outline: 1px solid var(--neutral10);
+}
+#darkmode .offcanvas-lg {
+  color: var(--neutral10);
+  background-color: #121212;
+}
