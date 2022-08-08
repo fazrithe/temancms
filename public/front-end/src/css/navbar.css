@@ -1,93 +1,93 @@
 /* Styling For Navbar */
 .navbar {
-  padding: 24px;
-  background-color: var(--neutral10);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    padding: 24px;
+    background-color: var(--neutral10);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
 }
 .navbar ul li a {
-  font-size: var(--textMedium);
-  line-height: var(--LHMedium);
-  color: var(--primaryColorTrooper);
-  font-weight: 500;
+    font-size: var(--textMedium);
+    line-height: var(--LHMedium);
+    color: var(--primaryColorTrooper);
+    font-weight: 600;
 }
 .navbar ul li a:hover {
-  color: var(--primaryColorTrooper);
+    color: var(--primaryColorTrooper);
 }
 nav ul li:not(:last-child) {
-  margin-right: 40px;
+    margin-right: 40px;
 }
 .form-control {
-  padding: 6px 12px;
-  border: 1px solid #c2c2c2;
-  box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.08);
-  border-radius: 6px;
-  font-size: var(--textSmall);
+    padding: 6px 12px;
+    border: 1px solid #c2c2c2;
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    font-size: var(--textSmall);
 }
 .form-control:focus {
-  box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.08);
-  outline: 5px solid rgba(104, 121, 128, 0.2);
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.08);
+    outline: 5px solid rgba(104, 121, 128, 0.2);
 }
 input::-webkit-input-placeholder {
-  font-size: var(--textSmall);
+    font-size: var(--textSmall);
 }
 .button-icon {
-  background-color: #f5f5ff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 6px;
+    background-color: #f5f5ff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
 }
 .button-icon:hover {
-  background-color: var(--neutral30);
+    background-color: var(--neutral30);
 }
 .button-icon:focus {
-  background-color: var(--neutral40);
+    background-color: var(--neutral40);
 }
 .navbar-toggler {
-  border: none;
+    border: none;
 }
 .navbar-toggler:focus {
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
 }
 .navbar-brand:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 .btn-close {
-  background-image: url("../image/close-icon.svg");
-  background-size: cover;
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
-  border: none;
-  background-repeat: no-repeat;
-  padding: 2px;
+    background-image: url("../image/close-icon.svg");
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    padding: 2px;
 }
 .btn-close:focus {
-  box-shadow: none;
+    box-shadow: none;
 }
 .button-menu {
-  background-image: url("../image/hamburger-icon.svg");
-  background-size: cover;
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border: none;
-  background-repeat: no-repeat;
-  padding: 2px;
+    background-image: url("../image/hamburger-icon.svg");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    padding: 2px;
 }
 .navbar-dark {
-  background-color: var(--neutral100);
-  box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.12);
+    background-color: var(--neutral100);
+    box-shadow: 0px 1px 2px rgba(255, 255, 255, 0.12);
 }
 
 @media (min-width: 992px) {
-  .offcanvas-body {
-    display: none !important;
-  }
-  .button-menu {
-    display: none;
-  }
+    .offcanvas-body {
+        display: none !important;
+    }
+    .button-menu {
+        display: none;
+    }
 }
 
 /* Styling For Navbar */

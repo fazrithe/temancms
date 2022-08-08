@@ -1,32 +1,33 @@
 footer {
-  padding: 60px 0;
-  margin-top: 60px;
-  background-color: var(--neutral100);
+    padding: 60px 0;
+    margin-top: 60px;
+    background-color: var(--neutral100);
+    z-index: 100;
 }
 footer ul li a {
-  font-size: var(--textMedium);
-  color: var(--neutral10);
+    font-size: var(--textMedium);
+    color: var(--neutral10);
 }
 footer ul li a:hover {
-  font-size: var(--textMedium);
-  color: var(--neutral40);
+    font-size: var(--textMedium);
+    color: var(--neutral40);
 }
 footer ul li:not(:last-child) {
-  margin-right: 40px;
+    margin-right: 40px;
 }
 footer span {
-  font-size: var(--textSmall);
-  color: var(--neutral40);
+    font-size: var(--textSmall);
+    color: var(--neutral40);
 }
 @media (max-width: 991.98px) {
-  footer ul {
-    flex-direction: column;
-    text-align: center;
-  }
-  footer ul li:not(:last-child) {
-    margin-right: 0px !important;
-  }
-  footer ul li:not(:last-child) {
-    margin-bottom: 24px !important;
-  }
+    footer ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer ul li:not(:last-child) {
+        margin-right: 0px !important;
+    }
+    footer ul li:not(:last-child) {
+        margin-bottom: 24px !important;
+    }
 }

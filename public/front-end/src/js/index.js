@@ -1,6 +1,4 @@
-const buttonLight = document.querySelector(".button-light");
 const buttonDark = document.querySelector(".button-dark");
-
 if (localStorage.getItem("theme") == "dark") setDarkMode(true);
 function setDarkMode(isDark) {
     if (isDark) {

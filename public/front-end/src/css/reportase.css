@@ -1,16 +1,53 @@
+#reportase {
+    margin-top: 300px;
+}
+#reportase h1 {
+    font-size: var(--textLarge);
+}
 #list-reportase {
-  margin-top: 120px;
+    margin-top: 120px;
 }
 #list-reportase a {
-  color: var(--primaryColorTrooper);
-  font-weight: 600;
+    color: var(--primaryColorTrooper);
+    font-weight: 600;
 }
 #list-reportase a:hover {
-  color: var(--neutral80);
-  font-weight: 600;
+    color: var(--neutral80);
+    font-weight: 600;
 }
 
 .header-list a {
-  color: var(--primaryColorTrooper);
-  font-weight: 600;
+    color: var(--primaryColorTrooper);
+    font-weight: 600;
+}
+.text-header {
+    font-weight: 600;
+    font-size: 4rem;
+    color: var(--neutral10);
+    margin-top: -300px;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+#reportase p {
+    font-size: var(--textMedium);
+}
+.card-news span {
+    color: var(--neutral80);
+    font-weight: 400 !important;
+    font-size: var(--textSmall);
+}
+.card-news span a {
+    color: var(--primaryColorTrooper);
+    font-weight: 600;
+}
+#reportase .first-list {
+    margin-top: -100px;
+}
+#reportase .first-list .card-news {
+    width: 70%;
+}
+.pagination-buttons button {
+    border: none;
+    background-color: transparent;
+    font-size: var(--textXtraLarge);
+    color: var(--primaryColorTrooper);
 }
