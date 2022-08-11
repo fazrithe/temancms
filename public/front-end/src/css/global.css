@@ -52,6 +52,10 @@ ul {
 ul li {
     list-style: none;
 }
+p {
+    margin: 0;
+    padding: 0;
+}
 .date {
     color: var(--neutral80);
     font-weight: 400 !important;
@@ -116,4 +120,11 @@ p {
 }
 #light {
     fill: black;
+}
+.date-read p {
+    font-size: var(--textSmall);
+}
+.desc-picture {
+    color: var(--neutral80);
+    font-size: var(--textSmall);
 }

@@ -7,8 +7,8 @@
 .navbar ul li a {
     font-size: var(--textMedium);
     line-height: var(--LHMedium);
-    color: var(--primaryColorTrooper);
-    font-weight: 600;
+    color: var(--neutral80);
+    font-weight: 500;
 }
 .navbar ul li a:hover {
     color: var(--primaryColorTrooper);

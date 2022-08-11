@@ -40,3 +40,9 @@
 #darkmode #light {
     fill: #c2c2c2;
 }
+#darkmode .desc-picture {
+    color: var(--neutral50);
+}
+#darkmode .navbar ul li a {
+    color: var(--neutral40);
+}
