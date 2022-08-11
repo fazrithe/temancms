@@ -46,3 +46,12 @@
 #darkmode .navbar ul li a {
     color: var(--neutral40);
 }
+#darkmode .error-404 h2 {
+    color: var(--neutral10);
+}
+#darkmode .error-404 h5 {
+    color: var(--neutral60);
+}
+#darkmode .error-404 span {
+    color: var(--neutral60);
+}

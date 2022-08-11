@@ -128,3 +128,25 @@ p {
     color: var(--neutral80);
     font-size: var(--textSmall);
 }
+.error-404 h2 {
+    font-size: var(--textXtraLarge);
+}
+.error-404 h5 {
+    font-size: var(--textLarge);
+    font-weight: 400;
+    color: var(--neutral80);
+}
+.error-404 {
+    margin-bottom: 200px;
+}
+.error-404 span {
+    color: var(--neutral80);
+    font-size: var(--textMedium);
+}
+.error-404 a {
+    color: var(--primaryColorTrooper);
+    font-weight: 600;
+}
+.first-list {
+    margin-top: -200px;
+}

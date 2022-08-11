@@ -39,9 +39,7 @@
     color: var(--primaryColorTrooper);
     font-weight: 600;
 }
-#reportase .first-list {
-    margin-top: -100px;
-}
+
 #reportase .first-list .card-news {
     width: 70%;
 }
