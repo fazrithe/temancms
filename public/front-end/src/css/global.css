@@ -114,3 +114,6 @@ main {
 p {
     color: var(--neutral80);
 }
+#light {
+    fill: black;
+}
