@@ -44,10 +44,10 @@ class ArticleController extends Controller
 			$post->save();
 
 			if ($post->auth_required == 1 && Sentinel::check() == false) {
-				return view('site.pages.403');
+				return view('site2.pages.403');
 			}
 		} else {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 		$post               = Post::with(['image','quizQuestions','quizQuestions.quizAnswers','quizResults','comments'=> function ($query) {
 										return $query->whereNull('comment_id');
@@ -145,7 +145,7 @@ class ArticleController extends Controller
 
 //		dd($post);
 
-		return view('site.pages.article_detail', compact('post', 'widgets', 'socialLinks', 'relatedPost', 'tracks', 'post_contents'));
+		return view('site2.pages.article_detail', compact('post', 'widgets', 'socialLinks', 'relatedPost', 'tracks', 'post_contents'));
 	}
 
     public function mobileArticleDetail($id)
@@ -233,7 +233,7 @@ class ArticleController extends Controller
         $tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
         $tracker->save();
 
-        return view('site.pages.article.article_detail_mobile', compact('post', 'tracks', 'post_contents'));
+        return view('site2.pages.article.article_detail_mobile', compact('post', 'tracks', 'post_contents'));
     }
 
 	private function socialLinks()
@@ -255,15 +255,15 @@ class ArticleController extends Controller
 	{
 		if (settingHelper('submit_news_status') == 1):
 			if (!Sentinel::check()):
-				return redirect()->route('site.login.form');
+				return redirect()->route('site2.login.form');
 			endif;
 
 			$widgetService = new WidgetService();
 			$widgets = $widgetService->getWidgetDetails();
 
-			return view('site.pages.submit_news', compact('widgets'));
+			return view('site2.pages.submit_news', compact('widgets'));
 		else:
-			return response()->view('site.pages.404');
+			return response()->view('site2.pages.404');
 		endif;
 	}
 
@@ -284,7 +284,7 @@ class ArticleController extends Controller
 	public function saveNews(Request $request)
 	{
 		if (settingHelper('submit_news_status') != 1):
-			return response()->view('site.pages.404');
+			return response()->view('site2.pages.404');
 		endif;
 
 		Validator::make($request->all(), [
@@ -318,7 +318,7 @@ class ArticleController extends Controller
 
 			DB::rollBack();
 
-			return view('site.pages.500');
+			return view('site2.pages.500');
 		}
 	}
 
@@ -486,9 +486,9 @@ class ArticleController extends Controller
                     $query->where('auth_required', 0);
                 })->count();
 
-            return view('site.pages.search', compact('posts','totalPostCount'));
+            return view('site2.pages.search', compact('posts','totalPostCount'));
         } catch (\Exception $e) {
-            return view('site.pages.404');
+            return view('site2.pages.404');
         }
     }
 
@@ -527,9 +527,9 @@ class ArticleController extends Controller
 			$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 			$tracker->save();
 
-			return view('site.pages.category_posts', compact('posts', 'widgets', 'totalPostCount', 'id'));
+			return view('site2.pages.category_posts', compact('posts', 'widgets', 'totalPostCount', 'id'));
 		} catch (\Exception $e) {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 	}
 
@@ -651,9 +651,9 @@ class ArticleController extends Controller
 			$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 			$tracker->save();
 
-			return view('site.pages.category_posts', compact('posts', 'widgets', 'totalPostCount', 'id'));
+			return view('site2.pages.category_posts', compact('posts', 'widgets', 'totalPostCount', 'id'));
 		} catch (\Exception $e) {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 	}
 
@@ -772,9 +772,9 @@ class ArticleController extends Controller
 			$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 			$tracker->save();
 
-			return view('site.pages.tags_posts', compact('posts', 'widgets', 'totalPostCount', 'slug'));
+			return view('site2.pages.tags_posts', compact('posts', 'widgets', 'totalPostCount', 'slug'));
 		} catch (\Exception $e) {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 	}
 
@@ -882,9 +882,9 @@ class ArticleController extends Controller
 			$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 			$tracker->save();
 
-			return view('site.pages.category_posts', compact('posts', 'widgets'));
+			return view('site2.pages.category_posts', compact('posts', 'widgets'));
 		} catch (\Exception $e) {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 	}
 
@@ -926,9 +926,9 @@ class ArticleController extends Controller
 			$tracker->save();
 
 
-			return view('site.pages.date_posts', compact('posts', 'widgets', 'totalPostCount', 'date'));
+			return view('site2.pages.date_posts', compact('posts', 'widgets', 'totalPostCount', 'date'));
 		} catch (\Exception $e) {
-			return view('site.pages.404');
+			return view('site2.pages.404');
 		}
 	}
 

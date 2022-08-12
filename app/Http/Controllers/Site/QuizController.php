@@ -41,7 +41,7 @@ class QuizController extends Controller
         if (!empty($quiz_post_results)):
             foreach ($quiz_post_results as $key => $quizResult):
 
-                $html = view('site.pages.article.partials.contents.trivia-result', compact('quizResult'))->render();
+                $html = view('site2.pages.article.partials.contents.trivia-result', compact('quizResult'))->render();
 
                 $item = array($quizResult->id, $quizResult->min_correct, $quizResult->max_correct, $html);
 

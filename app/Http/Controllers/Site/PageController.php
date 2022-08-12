@@ -32,15 +32,15 @@ class PageController extends Controller
             $tracker->save();
 
             if($page->page_type == 1):
-                return view('site.pages.default_page', compact('page'));
+                return view('site2.pages.default_page', compact('page'));
             else:
-                return view('site.pages.contact_us', compact('page', 'socialMedias'));
+                return view('site2.pages.contact_us', compact('page', 'socialMedias'));
             endif;
 
 
         }
         catch (\Exception $e){
-            return view('site.pages.404');
+            return view('site2.pages.404');
         }
     }
 
@@ -80,7 +80,7 @@ class PageController extends Controller
 
     public function imageAlbums(){
         $albums = Album::all();
-        return view('site.pages.albums', compact('albums'));
+        return view('site2.pages.albums', compact('albums'));
     }
 
     public function imageGallery($slug){
@@ -90,9 +90,9 @@ class PageController extends Controller
             $albumImages    = GalleryImage::where('album_id',$album->id)->orderBy('id','desc')->get();
             $tabs           = $album->tabs;
 //            dd($tabs);
-            return view('site.pages.album_gallery',compact('albumImages','tabs','album'));
+            return view('site2.pages.album_gallery',compact('albumImages','tabs','album'));
         else:
-            return view('site.pages.404');
+            return view('site2.pages.404');
         endif;
 
     }
@@ -106,17 +106,17 @@ class PageController extends Controller
 //            dd($feeds);
         }else{
             $invalidurl = true;
-            return view('site.pages.404');
+            return view('site2.pages.404');
         }
-        return view('site.pages.feed',compact('feeds','invalidurl'));
+        return view('site2.pages.feed',compact('feeds','invalidurl'));
     }
 
     public function notFound()
     {
-        return view('site.pages.404');
+        return view('site2.pages.404');
     }
     public function accessDenied()
     {
-        return view('site.pages.403');
+        return view('site2.pages.403');
     }
 }
