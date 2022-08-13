@@ -1,0 +1,15 @@
+.author h4 {
+    font-size: var(--textLarge);
+    margin-top: 12px;
+    color: var(--neutral100);
+}
+.author .bio {
+    font-size: var(--textMedium);
+    font-weight: 400;
+    color: var(--neutral80);
+}
+@media (max-width: 767.98px) {
+    .author {
+        margin-top: 40px;
+    }
+}

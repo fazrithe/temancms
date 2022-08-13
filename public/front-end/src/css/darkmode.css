@@ -55,3 +55,6 @@
 #darkmode .error-404 span {
     color: var(--neutral60);
 }
+#darkmode .author h4 {
+    color: var(--neutral10);
+}
