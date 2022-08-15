@@ -1,5 +1,5 @@
 @php
-    $blockPosts = $posts->take(4);
+    $blockPosts = $posts->take(3);
 @endphp
 
 <main>
@@ -35,13 +35,12 @@
                         @if(isFileExist(@$post['image'], $result = @$post['image']->medium_image_three))
                             <img src="{{ safari_check() ? basePath(@$post['image']).'/'.$result : static_asset('default-image/default-358x215.png')  }} "
                                  data-original=" {{basePath(@$post['image'])}}/{{ $result }} "
-                                 class="img-fluid" alt="{!! $post->title !!}">
+                                 class="img-fluid" width="80%" alt="{!! $post->title !!}">
                         @else
                             <img src="{{ static_asset('default-image/default-358x215.png') }} "
                                  class="img-fluid" alt="{!! $post->title !!}">
                         @endif
                     </a>
-
                       <div class="details-news ms-3">
                       <span class="date"><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></span>
                       <h1  class="title-medium"><a href="{{ route('article.detail', ['id' => $post->slug]) }}">

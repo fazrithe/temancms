@@ -1,53 +1,38 @@
 @php
     //$posts = data_get($categorySection, 'category.post', collect([]));
-    $blockPosts = $posts->skip(1)->take(4);
-    $firstPost = $posts->first();
+    $topPosts = $posts->take(3);
+    $bottomPosts = $posts->skip(3)->take(6);
 @endphp
-
-<div class="sg-section">
-    <div class="section-content">
-        <div class="section-title">
-            <h1>
-            @if(data_get($categorySection, 'label') == 'videos')
-                    {{__('videos')}}
-                @else
-                    {{ \Illuminate\Support\Str::upper(data_get($categorySection, 'label')) }}
-                @endif
-            </h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="sg-post">
-                    @include('site.partials.home.category.first_post')
-                    <div class="entry-content">
-                        <h3 class="entry-title"><a href="{{ route('article.detail', ['id' => $firstPost->slug]) }}">{!! \Illuminate\Support\Str::limit($firstPost->title, 50) !!}</a></h3>
-                        <div class="entry-meta mb-2">
-                            <ul class="global-list">
-                                <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $firstPost->user->id]) }}">{{ data_get($firstPost, 'user.first_name') }}</a></li>
-                                <li><a href="{{route('article.date', date('Y-m-d', strtotime($firstPost->updated_at)))}}">{{ $firstPost->updated_at->format('F j, Y') }}</a></li>
-                            </ul>
-                        </div>
-                        <p> {!! strip_tags(\Illuminate\Support\Str::limit($firstPost->content, 130)) !!}</p>
-                    </div>
-                </div>
+<div class="row d-flex justify-content-center mt-4">
+    <div class="col-lg-6 list-berita-utama">
+        @foreach($topPosts as $firstPost)
+        <a href="">
+            <div class=" d-flex">
+                @include('site2.partials.home.category.first_post')
+                <div class="details-news ms-3">
+                <span class="date"><a href="{{route('article.date', date('Y-m-d', strtotime($firstPost->updated_at)))}}"> {{ $firstPost->updated_at->format('F j, Y') }}</a></span>
+                <h1  class="title-medium"><p>{!! strip_tags(\Illuminate\Support\Str::limit($firstPost->content, 120)) !!}</p></h1>
             </div>
-
-            <div class="col-lg-6">
-                @foreach($blockPosts as $post)
-                    <div class="sg-post small-post post-style-1">
-                        @include('site.partials.home.category.post_block')
-                        <div class="entry-content">
-                           <a href="{{ route('article.detail', ['id' => $post->slug]) }}"><p>{!! \Illuminate\Support\Str::limit($post->title, 25) !!}</p></a>
-                            <div class="entry-meta">
-                                <ul class="global-list">
-                                    <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $firstPost->user->id]) }}"> {{ data_get($post, 'user.first_name') }}</a></li>
-                                    <li><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
             </div>
-        </div>
+            </a>
+            <hr>
+        @endforeach
     </div>
-</div>
+
+    @foreach($bottomPosts->chunk(3) as $postGroup)
+    <div class="col-lg-6 list-berita-utama">
+        @foreach($postGroup as $post)
+        <a href="">
+            <div class=" d-flex">
+                @include('site2.partials.home.category.post_block')
+                <div class="details-news ms-3">
+                    <span class="date"><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></span>
+                    <h1  class="title-medium"><p>{!! strip_tags(\Illuminate\Support\Str::limit($post->content, 120)) !!}</p></h1>
+            </div>
+            </div>
+        </a>
+        <hr>
+        @endforeach
+    </div>
+    @endforeach
+    </div>
