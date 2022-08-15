@@ -46,6 +46,7 @@ class AuthorController extends Controller
     }
 
     public function  myProfile(){
+
         $articles   = Post::where('user_id', Sentinel::getUser()->id)->where('visibility', 1)
             ->where('status', 1)
             ->when(Sentinel::check()== false, function ($query) {

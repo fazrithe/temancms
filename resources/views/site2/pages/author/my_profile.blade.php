@@ -1,4 +1,4 @@
-@extends('site.layouts.app')
+@extends('site2.layouts.app')
 @section('my-profile')
     active
 @endsection
