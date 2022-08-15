@@ -1,10 +1,10 @@
 
 @foreach($categorySections as $categorySection)
         @php
-            if($categorySection->type != 3):
-                $viewFile = 'site.partials.home.category.'. data_get($categorySection, 'section_style', 'style_1');
+            if($categorySection->type == 3):
+                $viewFile = 'site2.partials.home.category.'. data_get($categorySection, 'section_style', 'style_1');
             else:
-                $viewFile = 'site.partials.home.category.latest_posts';
+                $viewFile = 'site2.partials.home.category.latest_posts';
             endif;
         @endphp
 
@@ -26,9 +26,6 @@
             ])
         @endif
 
-        @if(data_get($categorySection, 'ad') != "")
-            @include('site.partials.home.category.ad_section', ["ad" => data_get($categorySection, 'ad')])
-        @endif
     @endif
 @endforeach
 

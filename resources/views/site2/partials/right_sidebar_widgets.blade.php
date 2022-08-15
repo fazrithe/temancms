@@ -5,7 +5,7 @@
 @foreach($rightWidgets as $widget)
     @php
         //dd($widget['view']);
-        $viewFile = 'site.widgets.'.$widget['view'];
+        $viewFile = 'site2.widgets.'.$widget['view'];
     @endphp
     @if(view()->exists($viewFile))
         @include($viewFile, $widget)

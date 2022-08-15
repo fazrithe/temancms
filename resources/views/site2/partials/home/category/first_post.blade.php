@@ -11,9 +11,9 @@
             @endif
         </a>
     </div>
-    @if($firstPost->post_type=="video")
-        <div class="video-icon large-block">
-            <img src="{{static_asset('default-image/video-icon.svg') }}" alt="video-icon">
+    @if($firstPost->post_type=="article")
+        <div class="article-icon large-block">
+            <img src="{{static_asset('default-image/article-icon.svg') }}" alt="article-icon">
         </div>
     @elseif($firstPost->post_type=="audio")
         <div class="video-icon large-block">

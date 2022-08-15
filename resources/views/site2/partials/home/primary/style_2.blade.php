@@ -25,7 +25,7 @@
                 <div class="home-slider">
                     @foreach($sliderPosts as $post)
                         <div class="sg-post featured-post">
-                            @include('site.partials.home.primary.slider')
+                            @include('site2.partials.home.primary.slider')
                             <div class="entry-content absolute">
                                 <div class="category">
                                     <ul class="global-list">

@@ -16,7 +16,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            ['2.partials.right_sidebar_widgets'],
+            ['site2.partials.right_sidebar_widgets'],
             'App\Http\View\Composers\WidgetComposer'
         );
 

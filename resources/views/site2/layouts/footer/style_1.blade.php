@@ -1,26 +1,27 @@
-<div class="footer footer-style-1">
-    <div class="footer-top">
-        <div class="container">
-            <div class="footer-content">
-                <div class="row">
-                    @foreach($footerWidgets as $widget)
-                        @if($widget['view'] == 'popular_post')
-                            @include('site.widgets.footer.popular_post', $widget)
-                        @elseif($widget['view'] == 'editor_picks')
-                            @include('site.widgets.footer.editor_picks', $widget)
-                        @elseif($widget['view'] == 'categories')
-                            @include('site.widgets.footer.categories', $widget)
-                        @elseif($widget['view'] == 'newsletter')
-                            @include('site.widgets.footer.newsletter', $widget)
-                        @endif
-                    @endforeach
-                </div><!-- /.row -->
+<footer>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 ">
+          <ul class="d-flex text-center">
+            <li>
+             <a href=""> Tentang Kami </a>
+            </li>
+            <li>
+              <a href=""> Redaksi </a>
+            </li>
+            <li>
+              <a href=""> Kontak Kami</a>
+            </li>
+            <li>
+              <a href=""> Pedoman Media Siber</a>
+            </li>
+          </ul>
+        </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <span>© 2022 parabel.id. All rights reserved</span>
             </div>
-        </div><!-- /.container -->
+          </div>
     </div>
-    <div class="footer-bottom">
-        <div class="container text-center">
-            <span>{{settingHelper('copyright_text')}}</span>
-        </div><!-- /.container -->
-    </div>
-</div><!-- /.footer -->
+   </footer>
