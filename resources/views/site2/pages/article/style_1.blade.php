@@ -14,7 +14,7 @@
         </ul>
     </div>
     @if(@$post->post_type == 'audio')
-        @include('site.pages.article.partials.audio')
+        @include('site2.pages.article.partials.audio')
     @endif
     <div class="paragraph">
         {!! $post->content !!}
@@ -25,20 +25,20 @@
             </a>
         </div>
     @endif
-    @include('site.pages.article.partials.content')
+    @include('site2.pages.article.partials.content')
     @if(settingHelper('adthis_option')==1 and settingHelper('addthis_public_id')!=null and settingHelper('addthis_toolbox')!=null)
         {!! base64_decode(settingHelper('addthis_toolbox')) !!}
     @endif
 
     @if(@$post->post_type == 'trivia-quiz')
-        @include('site.pages.article.partials.trivia-quiz')
+        @include('site2.pages.article.partials.trivia-quiz')
     @endif
     @if(@$post->post_type == 'personality-quiz')
-        @include('site.pages.article.partials.personality-quiz')
+        @include('site2.pages.article.partials.personality-quiz')
     @endif
 
     @if(@$post->user->permissions['author_show'] == 1)
-        @include('site.pages.article.partials.author')
+        @include('site2.pages.article.partials.author')
     @endif
 
 </div>

@@ -1,4 +1,4 @@
-@extends('site.layouts.app')
+@extends('site2.layouts.app')
 
 @section('content')
     <div class="sg-main-content mb-4">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-5 col-lg-4 sg-sticky">
                     <div class="sg-sidebar theiaStickySidebar">
-                        @include('site.partials.right_sidebar_widgets')
+                        @include('site2.partials.right_sidebar_widgets')
                     </div>
                 </div>
             </div>

@@ -19,6 +19,7 @@ use Modules\Post\Entities\Category;
 use Modules\Post\Entities\SubCategory;
 use Modules\Post\Entities\Post;
 use Modules\Setting\Entities\Setting;
+use Modules\Social\Entities\SocialMedia;
 use File;
 use Image;
 use LaravelLocalization;
@@ -142,10 +143,10 @@ class ArticleController extends Controller
 		$tracker->date = date('Y-m-d');
 		$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 		$tracker->save();
-
+        $socialMedias       = SocialMedia::where('status', 1)->get();
 //		dd($post);
 
-		return view('site2.pages.article_detail', compact('post', 'widgets', 'socialLinks', 'relatedPost', 'tracks', 'post_contents'));
+		return view('site2.pages.article_detail', compact('post', 'socialMedias', 'widgets', 'socialLinks', 'relatedPost', 'tracks', 'post_contents'));
 	}
 
     public function mobileArticleDetail($id)
@@ -526,8 +527,9 @@ class ArticleController extends Controller
 			$tracker->ip = \Request()->ip();
 			$tracker->agent_browser = UserAgentBrowser(\Request()->header('User-Agent'));
 			$tracker->save();
+            $socialMedias       = SocialMedia::where('status', 1)->get();
 
-			return view('site2.pages.category_posts', compact('posts', 'widgets', 'totalPostCount', 'id'));
+			return view('site2.pages.category_posts', compact('posts', 'socialMedias', 'widgets', 'totalPostCount', 'id'));
 		} catch (\Exception $e) {
 			return view('site2.pages.404');
 		}

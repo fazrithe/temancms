@@ -1,5 +1,5 @@
 {{--@php dd($tracks) @endphp--}}
-@extends('site.layouts.app')
+@extends('site2.layouts.app')
 @section('style')
     <link rel="stylesheet" href="{{ static_asset('site/css/plyr.css') }}" />
     <link rel="stylesheet" href="{{ static_asset('reaction/reaction.css') }}" />
@@ -11,7 +11,7 @@
             <div class="entry-header mb-4">
                 <div class="entry-thumbnail">
                     @if($post->layout == 'style_3')
-                        @include('site.pages.article.partials.detail_image')
+                        @include('site2.pages.article.partials.detail_image')
                     @endif
                 </div>
             </div>
@@ -22,11 +22,11 @@
                             <div class="section-content">
                                 <div class="sg-post">
                                     @if($post->layout =='default')
-                                        @include('site.pages.article.style_1')
+                                        @include('site2.pages.article.style_1')
                                     @elseif($post->layout == 'style_2')
-                                        @include('site.pages.article.style_2')
+                                        @include('site2.pages.article.style_2')
                                     @elseif($post->layout == 'style_3')
-                                        @include('site.pages.article.style_3')
+                                        @include('site2.pages.article.style_3')
                                     @endif
                                 </div>
 
@@ -86,7 +86,7 @@
                                                     <div class="section-title">
                                                         <h1>{{ __('comments') }}</h1>
                                                     </div>
-                                                    @include('site.post.comment', ["comments" => $comments])
+                                                    @include('site2.post.comment', ["comments" => $comments])
                                                 </div>
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
 
                 <div class="col-md-5 col-lg-4 sg-sticky">
                     <div class="sg-sidebar theiaStickySidebar">
-                        @include('site.partials.right_sidebar_widgets')
+                        @include('site2.partials.right_sidebar_widgets')
                     </div>
                 </div>
 

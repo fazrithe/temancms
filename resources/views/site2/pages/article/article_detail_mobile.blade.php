@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
 
-    @include('site.partials.seo_og')
+    @include('site2.partials.seo_og')
 
     <title>{{settingHelper('seo_title')}}</title>
 
