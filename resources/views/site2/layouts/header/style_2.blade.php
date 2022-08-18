@@ -146,7 +146,7 @@
                                                                 @php $key++ @endphp
                                                             @endforeach
                                                         </ul>
-                                                    </div>
+         </div>
                                                     <div class="col-md-10">
                                                         <div class="tab-content" id="myTabContent">
                                                             @foreach($mainMenu->children as $child)

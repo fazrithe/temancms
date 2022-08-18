@@ -1,6 +1,6 @@
 <div class="entry-header">
     <div class="header-top p-4">
-        <h3 class="entry-title">{!! $post->title ?? '' !!}</h3>
+        <h3 class="entry-title text-center">{!! $post->title ?? '' !!}</h3>
         <div class="entry-meta mb-2">
             <ul class="global-list">
                 <li><i class="fa fa-calendar-minus-o" aria-hidden="true"></i>

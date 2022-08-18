@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{ static_asset('site/css/plyr.css') }}" />
     <link rel="stylesheet" href="{{ static_asset('reaction/reaction.css') }}" />
     <link rel="stylesheet" href="{{ static_asset('reaction/reaction-2.css') }}" />
+    <link rel="stylesheet" href="{{ static_asset('front-end/src/') }}" />
 @endsection
 @section('content')
     <div class="sg-page-content">
@@ -15,8 +16,8 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-7 col-lg-8 sg-sticky">
+            <div class="row justify-content-center">
+                <div class="col-md-6  col-lg-8 sg-sticky">
                     <div class="theiaStickySidebar post-details">
                         <div class="sg-section">
                             <div class="section-content">
@@ -49,140 +50,13 @@
                                     </div>
                                 @endif
 
-                                @if(settingHelper('inbuild_comment') == 1)
-                                    <div class="sg-section">
-                                        <div class="section-content">
-                                            <div class="section-title">
-                                                <h1>{{ __('comment') }} / {{ __('reply_from') }}</h1>
-                                            </div>
-                                            <form class="contact-form" name="contact-form" method="post" action="{{ route('article.save.comment') }}">
-                                                @csrf
-                                                <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group">
-                                                            <label for="four">{{ __('comments') }}</label>
-                                                            <textarea name="comment" required="required"
-                                                                      class="form-control" rows="7" id="four"
-                                                                      placeholder="this is message..."></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    @if(Cartalyst\Sentinel\Laravel\Facades\Sentinel::check())
-                                                        <button type="submit" class="btn btn-primary">{{ __('post') }} {{ __('comment') }}</button>
-                                                    @else
-                                                        <a class="btn btn-primary" href="{{ route('site.login.form') }}">{{ __('comment') }}</a>
-                                                    @endif
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                    @if(!blank($comments = data_get($post, 'comments')))
-                                        <div class="sg-section">
-                                            <div class="section-content">
-                                                <div class="sg-comments-area">
-                                                    <div class="section-title">
-                                                        <h1>{{ __('comments') }}</h1>
-                                                    </div>
-                                                    @include('site2.post.comment', ["comments" => $comments])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                @endif
-
-                                @if(settingHelper('facebook_comment')==1)
-                                    <div class="fb-comments" data-href="{{ url()->current() }}" data-numposts="5" data-width="100%"></div>
-                                @endif
-
-                                @if(settingHelper('disqus_comment')==1)
-                                <!-- disqus comments -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="disqus_thread"></div>
-                                            <script>
-                                                var disqus_config = function () {
-                                                    this.page.url = "{{ url()->current() }}";  // Replace PAGE_URL with your page's canonical URL variable
-                                                    this.page.identifier = "{{ $post->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                                                };
-
-                                                (function() { // DON'T EDIT BELOW THIS LINE
-                                                    var d = document, s = d.createElement('script');
-                                                    s.src = 'https://{{ settingHelper('disqus_short_name') }}.disqus.com/embed.js';
-                                                    s.setAttribute('data-timestamp', +new Date());
-                                                    (d.head || d.body).appendChild(s);
-                                                })();
-                                            </script>
-                                            <noscript><a href="https://disqus.com/?ref_noscript"></a></noscript>
-                                            <script id="dsq-count-scr" src="//{{ settingHelper('disqus_short_name') }}.disqus.com/count.js" async></script>
-                                        </div>
-                                    </div>
-                                    <!-- END disqus comments -->
-                                @endif
-
-
-                                @if(!blank($relatedPost))
-                                    <div class="sg-section">
-                                        <div class="section-content">
-                                            <div class="section-title">
-                                                <h1>{{ __('related_post') }}</h1>
-                                            </div>
-                                            <div class="row text-center">
-                                                @foreach($relatedPost as $item)
-                                                    <div class="col-lg-6">
-                                                        <div class="sg-post post-style-2">
-                                                            <div class="entry-header">
-                                                                <div class="entry-thumbnail">
-                                                                    <a href="{{ route('article.detail', [$item->slug]) }}">
-                                                                        @if(isFileExist(@$item->image, $result =  @$item->image->medium_image))
-                                                                            <img src="{{safari_check() ? basePath(@$item->image).'/'.$result : static_asset('default-image/default-358x215.png') }} " data-original="{{ basePath(@$item->image) }}/{{ $result }}" class="img-fluid" {!! $item->title !!}>
-                                                                        @else
-                                                                            <img class="img-fluid" src="{{static_asset('default-image/default-358x215.png') }} "  {!! $item->title !!}>
-                                                                        @endif
-                                                                    </a>
-                                                                </div>
-                                                                @if($item->post_type=="video")
-                                                                    <div class="video-icon large-block">
-                                                                        <img src="{{static_asset('default-image/video-icon.svg') }} " alt="video-icon">
-                                                                    </div>
-                                                                @elseif($item->post_type=="audio")
-                                                                    <div class="video-icon large-block">
-                                                                        <img src="{{static_asset('default-image/audio-icon.svg') }} " alt="audio-icon">
-                                                                    </div>
-                                                                @endif
-                                                                <div class="category block">
-                                                                    <ul class="global-list">
-                                                                        @isset($post->category->category_name)
-                                                                            <li><a href="{{ url('category',$post->category->slug) }}">{{ $post->category->category_name }}</a></li>
-                                                                        @endisset
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="entry-content">
-                                                                <h3 class="entry-title"><a href="{{ route('article.detail', [$item->slug]) }}">{!! $item->title ?? '' !!}</a></h3>
-                                                                {{--                                                                <p>{!! \Illuminate\Support\Str::limit($item->content ?? '', 40) !!}</p>--}}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-5 col-lg-4 sg-sticky">
-                    <div class="sg-sidebar theiaStickySidebar">
-                        @include('site2.partials.right_sidebar_widgets')
-                    </div>
-                </div>
-
+                
             </div>
         </div>
     </div>
