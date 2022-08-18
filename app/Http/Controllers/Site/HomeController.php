@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         if (Sentinel::check()):
 
-            if (!View::exists('site.website.'.$language.'.logged.widgets')):
+            if (!View::exists('site2.website.'.$language.'.logged.widgets')):
                 $this->widgetsSection($language);
             endif;
 
@@ -209,7 +209,7 @@ class HomeController extends Controller
 //            $this->categorySections($language);
 //        endif;
 
-        return view('site.pages.home', compact('primarySection','primarySectionPosts', 'sliderPosts', 'categorySections','video_posts','totalPostCount','latest_posts'));
+        return view('site2.pages.home', compact('primarySection','primarySectionPosts', 'sliderPosts', 'categorySections','video_posts','totalPostCount','latest_posts'));
     }
 
     public function categorySections($language)
@@ -313,9 +313,9 @@ class HomeController extends Controller
 
         endif;
 
-        if (fopen(resource_path() . "/views/site/website/category_sections.blade.php", 'w')):
-            $file = resource_path() . "/views/site/website/category_sections.blade.php";
-            $view = view('site.partials.home.category_section',compact('categorySections','video_posts','totalPostCount','latest_posts'))->render();
+        if (fopen(resource_path() . "/views/site2/website/category_sections.blade.php", 'w')):
+            $file = resource_path() . "/views/site2/website/category_sections.blade.php";
+            $view = view('site2.partials.home.category_section',compact('categorySections','video_posts','totalPostCount','latest_posts'))->render();
             File::put($file, $view);
         endif;
 
@@ -327,9 +327,9 @@ class HomeController extends Controller
     {
 
         if (Sentinel::Check()):
-            $path = resource_path() . "/views/site/website/".$language.'/logged';
+            $path = resource_path() . "/views/site2/website/".$language.'/logged';
         else:
-            $path = resource_path() . "/views/site/website/".$language;
+            $path = resource_path() . "/views/site2/website/".$language;
         endif;
 
         File::makeDirectory($path, 0777, true, true);
@@ -338,7 +338,7 @@ class HomeController extends Controller
 
         if (fopen($file, 'w')):
 
-            $view = view('site.partials.right_sidebar_widgets');
+            $view = view('site2.partials.right_sidebar_widgets');
 
             File::put($file, $view);
         endif;

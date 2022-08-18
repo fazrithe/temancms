@@ -93,7 +93,7 @@ class RssController extends Controller
             return redirect()->back()->with('success',__('successfully_added'));
         }
         catch(\Exception $e){
-            return view('site.pages.500');
+            return view('site2.pages.500');
         }
 
     }
@@ -159,7 +159,7 @@ class RssController extends Controller
             return redirect()->back()->with('success',__('successfully_updated'));
         }
         catch(\Exception $e){
-            return view('site.pages.500');
+            return view('site2.pages.500');
         }
     }
 

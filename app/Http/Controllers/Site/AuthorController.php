@@ -39,13 +39,14 @@ class AuthorController extends Controller
                             ->count();
 
         if($author != null):
-            return view('site.pages.author.profile', compact('author','articles','totalPostCount'));
+            return view('site2.pages.author.profile', compact('author','articles','totalPostCount'));
         else:
-            return response()->view('site.pages.404');
+            return response()->view('site2.pages.404');
         endif;
     }
 
     public function  myProfile(){
+
         $articles   = Post::where('user_id', Sentinel::getUser()->id)->where('visibility', 1)
             ->where('status', 1)
             ->when(Sentinel::check()== false, function ($query) {
@@ -62,11 +63,11 @@ class AuthorController extends Controller
             ->where('language', LaravelLocalization::setLocale() ?? settingHelper('default_language'))
             ->count();
 
-        return view('site.pages.author.my_profile', compact('articles', 'totalPostCount'));
+        return view('site2.pages.author.my_profile', compact('articles', 'totalPostCount'));
     }
     public function  myProfileEdit(){
 
-        return view('site.pages.author.edit_profile');
+        return view('site2.pages.author.edit_profile');
     }
     public function  myProfileUpdate(Request $request){
         if (strtolower(\Config::get('app.demo_mode')) == 'yes'):
@@ -129,7 +130,7 @@ class AuthorController extends Controller
     }
     public function  social(){
         $socials = Sentinel::getUser()->social_media;
-        return view('site.pages.author.social',compact('socials'));
+        return view('site2.pages.author.social',compact('socials'));
     }
     public function  socialUpdate(Request $request){
         $inputs             = $request->except(['_token']);
@@ -142,7 +143,7 @@ class AuthorController extends Controller
     }
     public function  preference(){
         $preferences = Sentinel::findById(1)->permissions;
-        return view('site.pages.author.preference',compact('preferences'));
+        return view('site2.pages.author.preference',compact('preferences'));
     }
     public function  preferenceUpdate(Request $request){
         $inputs             = $request->except(['_token']);
@@ -154,6 +155,6 @@ class AuthorController extends Controller
         return redirect()->back()->with('success', __('successfully_updated'));
     }
     public function  changePassword(){
-        return view('site.pages.author.change_password');
+        return view('site2.pages.author.change_password');
     }
 }

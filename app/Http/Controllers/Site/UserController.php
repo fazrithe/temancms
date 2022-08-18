@@ -24,7 +24,7 @@ class UserController extends Controller
         $widgetService          = new WidgetService();
         $widgets                = $widgetService->getWidgetDetails();
 
-        return view('site.auth.login', compact('widgets'));
+        return view('site2.auth.login', compact('widgets'));
     }
 
     public function login(Request $request)
@@ -70,7 +70,7 @@ class UserController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('site.auth.register');
+        return view('site2.auth.register');
     }
 
     public function register(Request $request)
@@ -159,7 +159,7 @@ class UserController extends Controller
 
     public function forgotPassword()
     {
-        return view('site.auth.forgot_password');
+        return view('site2.auth.forgot_password');
     }
 
     public function postForgotPassword(Request $request)
@@ -194,7 +194,7 @@ class UserController extends Controller
         $user                   = User::byEmail($email);
 
         if ($reminder           = Reminder::exists($user, $resetCode)) :
-            return view('site.auth.reset_password',['email'=>$email,'resetCode'=>$resetCode]);
+            return view('site2.auth.reset_password',['email'=>$email,'resetCode'=>$resetCode]);
         else :
             return redirect('login');
         endif;

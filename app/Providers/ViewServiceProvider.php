@@ -16,17 +16,17 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            ['site.partials.right_sidebar_widgets'],
+            ['site2.partials.right_sidebar_widgets'],
             'App\Http\View\Composers\WidgetComposer'
         );
 
         View::composer(
-            ['site.partials.footer_widgets', 'site.layouts.footer'],
+            ['site2.partials.footer_widgets', 'site2.layouts.footer'],
             'App\Http\View\Composers\FooterWidgetComposer'
         );
 
         View::composer(
-            ['site.layouts.header'],
+            ['site2.layouts.header'],
             'App\Http\View\Composers\HeaderWidgetComposer'
         );
 
@@ -36,37 +36,37 @@ class ViewServiceProvider extends ServiceProvider
         // );
 
         View::composer(
-            ['site.partials.home.category_section', 'site.pages.home', 'site.widgets.ad_widget', 'site.layouts.header'],
+            ['site2.partials.home.category_section', 'site2.pages.home', 'site2.widgets.ad_widget', 'site.layouts.header'],
             'App\Http\View\Composers\AdComposer'
         );
 
         View::composer(
-            ['site.layouts.header'],
+            ['site2.layouts.header'],
             'App\Http\View\Composers\PrimaryMenuComposer'
         );
 
         View::composer(
-            ['site.layouts.header', 'site.layouts.footer', 'site.partials.right_sidebar_widgets'],
+            ['site2.layouts.header', 'site2.layouts.footer', 'site2.partials.right_sidebar_widgets'],
             'App\Http\View\Composers\SocialComposer'
         );
 
         View::composer(
-            ['site.layouts.header'],
+            ['site2.layouts.header'],
             'App\Http\View\Composers\LastpostComposer'
         );
 
         View::composer(
-            ['site.layouts.header', 'common::layouts.header'],
+            ['site2.layouts.header', 'common::layouts.header'],
             'App\Http\View\Composers\ActiveLangComposer'
         );
 
         View::composer(
-            ['site.partials.home.primary_section'],
+            ['site2.partials.home.primary_section'],
             'App\Http\View\Composers\BreakingComposer'
         );
 
         View::composer(
-            ['site.layouts.app', 'site.partials.home.primary_section','site.pages.article.article_detail_mobile'],
+            ['site2.layouts.app', 'site2.partials.home.primary_section','site2.pages.article.article_detail_mobile'],
             'App\Http\View\Composers\LanguageComposer'
         );
 
