@@ -68,9 +68,29 @@
    </footer>
 
    <!-- FOOTER -->
-    <!-- BOOTSTRAP -->
-    <script src="{{static_asset('front-end/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{static_asset('front-end/src/js/index.js')}}"></script>
+<!-- BOOTSTRAP -->
+<script src="{{static_asset('front-end/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{static_asset('front-end/src/js/index.js')}}"></script>
+<script src="{{static_asset('site/js/jquery.min.js') }}"></script>
+<script defer src="{{static_asset('site/js/slick.min.js') }}"></script>
+<script defer src="{{static_asset('site/js/theia-sticky-sidebar.min.js') }}"></script>
+<script defer src="{{static_asset('site/js/magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="{{ static_asset('site/js/custom.min.js')}}" ></script>
+@stack('script')
+<script async type="text/javascript" src="{{static_asset('site/js') }}/jquery.cookie.min.js"></script>
+<script defer src="{{static_asset('site/js/lazyload.js')}}"></script>
+@php
+    if(settingHelper('notification_status') == '1'){
+        $onesignal_appid                    =   settingHelper('onesignal_app_id');
+        $onesignal_actionmessage            =   settingHelper('onesignal_action_message');
+        $onesignal_acceptbuttontext         =   settingHelper('onesignal_accept_button');
+        $onesignal_cancelbuttontext         =   settingHelper('onesignal_cancel_button');
+    }
+@endphp
+
+
+@yield('script')
+
     <!-- BOOTSTRAP -->
   </body>
 </html>
