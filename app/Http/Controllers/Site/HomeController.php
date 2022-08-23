@@ -34,7 +34,7 @@ class HomeController extends Controller
 
             if($primarySection->status == 1):
 
-                $primarySectionPosts    = Cache::remember('primarySectionPostsAuth', $seconds = 1200, function () {
+                $primarySectionPosts    = Cache::remember('primarySectionPostsAuth', $seconds = 200, function () {
                     return Post::with(['category', 'image', 'user'])
                         ->where('visibility', 1)
                         ->where('status', 1)
@@ -49,7 +49,7 @@ class HomeController extends Controller
 
             endif;
 
-            $sliderPosts            = Cache::remember('sliderPostsAuth', $seconds = 1200, function () {
+            $sliderPosts            = Cache::remember('sliderPostsAuth', $seconds = 200, function () {
                 return  Post::with(['category', 'image', 'user'])
                     ->where('visibility', 1)
                     ->where('slider', 1)
@@ -59,7 +59,7 @@ class HomeController extends Controller
                     ->limit(5)->get();
             });
 
-            $categorySections       = Cache::remember('categorySectionsAuth', $seconds = 1200, function () {
+            $categorySections       = Cache::remember('categorySectionsAuth', $seconds = 200, function () {
                 return ThemeSection::with('ad')
                     ->with(['category'])
                     ->where('is_primary', '<>', 1)->orderBy('order', 'ASC')
@@ -73,7 +73,7 @@ class HomeController extends Controller
                 $section->load('post');
             });
 
-            $video_posts     = Cache::remember('video_postsAuth', $seconds = 1200, function () {
+            $video_posts     = Cache::remember('video_postsAuth', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('post_type', 'video')
                     ->where('visibility', 1)
@@ -84,7 +84,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_postsAuth', $seconds = 1200, function () {
+            $latest_posts       = Cache::remember('latest_postsAuth', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
@@ -94,7 +94,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $totalPostCount     = Cache::remember('totalPostCountAuth', $seconds = 1200, function () {
+            $totalPostCount     = Cache::remember('totalPostCountAuth', $seconds = 200, function () {
                 return Post::where('visibility', 1)
                     ->where('status', 1)
                     ->orderBy('id', 'desc')
@@ -105,7 +105,7 @@ class HomeController extends Controller
         else:
             if($primarySection->status == 1):
 
-                $primarySectionPosts    = Cache::remember('primarySectionPosts', $seconds = 1200, function () {
+                $primarySectionPosts    = Cache::remember('primarySectionPosts', $seconds = 200, function () {
                     return Post::with(['category', 'image', 'user'])
                         ->where('visibility', 1)
                         ->where('status', 1)
@@ -123,7 +123,7 @@ class HomeController extends Controller
 
             endif;
 
-            $sliderPosts            = Cache::remember('sliderPosts', $seconds = 1200, function () {
+            $sliderPosts            = Cache::remember('sliderPosts', $seconds = 200, function () {
                 return  Post::with(['category', 'image', 'user'])
                     ->where('visibility', 1)
                     ->where('slider', 1)
@@ -136,7 +136,7 @@ class HomeController extends Controller
                     ->limit(5)->get();
             });
 
-            $categorySections       = Cache::remember('categorySections', $seconds = 1200, function () {
+            $categorySections       = Cache::remember('categorySections', $seconds = 200, function () {
                 return ThemeSection::with('ad')
                     ->with(['category'])
                     ->where('is_primary', '<>', 1)->orderBy('order', 'ASC')
@@ -150,7 +150,7 @@ class HomeController extends Controller
                 $section->load('post');
             });
 
-            $video_posts     = Cache::remember('video_posts', $seconds = 1200, function () {
+            $video_posts     = Cache::remember('video_posts', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('post_type', 'video')
                     ->where('visibility', 1)
@@ -164,7 +164,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_posts', $seconds = 1200, function () {
+            $latest_posts       = Cache::remember('latest_posts', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
@@ -177,7 +177,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $totalPostCount     = Cache::remember('totalPostCount', $seconds = 1200, function () {
+            $totalPostCount     = Cache::remember('totalPostCount', $seconds = 200, function () {
                 return Post::where('visibility', 1)
                     ->where('status', 1)
                     ->when(Sentinel::check() == false, function ($query) {
@@ -215,7 +215,7 @@ class HomeController extends Controller
     public function categorySections($language)
     {
         if (Sentinel::check()):
-            $categorySections       = Cache::remember('categorySectionsAuth', $seconds = 1200, function () {
+            $categorySections       = Cache::remember('categorySectionsAuth', $seconds = 200, function () {
                 return ThemeSection::with('ad')
                     ->with(['category'])
                     ->where('is_primary', '<>', 1)->orderBy('order', 'ASC')
@@ -229,7 +229,7 @@ class HomeController extends Controller
                 $section->load('post');
             });
 
-            $video_posts     = Cache::remember('video_postsAuth', $seconds = 1200, function () {
+            $video_posts     = Cache::remember('video_postsAuth', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('post_type', 'video')
                     ->where('visibility', 1)
@@ -240,7 +240,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_postsAuth', $seconds = 1200, function () {
+            $latest_posts       = Cache::remember('latest_postsAuth', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
@@ -250,7 +250,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $totalPostCount     = Cache::remember('totalPostCountAuth', $seconds = 1200, function () {
+            $totalPostCount     = Cache::remember('totalPostCountAuth', $seconds = 200, function () {
                 return Post::where('visibility', 1)
                     ->where('status', 1)
                     ->orderBy('id', 'desc')
@@ -259,7 +259,7 @@ class HomeController extends Controller
             });
 
         else:
-            $categorySections       = Cache::remember('categorySections', $seconds = 1200, function () {
+            $categorySections       = Cache::remember('categorySections', $seconds = 200, function () {
                 return ThemeSection::with('ad')
                     ->with(['category'])
                     ->where('is_primary', '<>', 1)->orderBy('order', 'ASC')
@@ -273,7 +273,7 @@ class HomeController extends Controller
                 $section->load('post');
             });
 
-            $video_posts     = Cache::remember('video_posts', $seconds = 1200, function () {
+            $video_posts     = Cache::remember('video_posts', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('post_type', 'video')
                     ->where('visibility', 1)
@@ -287,7 +287,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_posts', $seconds = 1200, function () {
+            $latest_posts       = Cache::remember('latest_posts', $seconds = 200, function () {
                 return Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
@@ -300,7 +300,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $totalPostCount     = Cache::remember('totalPostCount', $seconds = 1200, function () {
+            $totalPostCount     = Cache::remember('totalPostCount', $seconds = 200, function () {
                 return Post::where('visibility', 1)
                     ->where('status', 1)
                     ->when(Sentinel::check() == false, function ($query) {
