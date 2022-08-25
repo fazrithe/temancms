@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="theiaStickySidebar">
-                        @include('site2.partials.home.category_section')
+                        @include('site2.partials.home.category_section_reportase')
                     </div>
                 </div>
             </section>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="theiaStickySidebar">
-                        @include('site2.partials.home.category_section')
+                        @include('site2.partials.home.category_section_serial')
                     </div>
                 </div>
             </section>

@@ -4,6 +4,7 @@
 
               <div class="row mt-4">
                 @foreach($posts->take(4) as $post)
+                @if($post->category_id == 1)
                 <div class="col-lg-3 col-md-6 mb-4">
                   <a href="">
                     <a href="{{ route('article.detail', ['id' => $post->slug]) }}">
@@ -22,5 +23,6 @@
                         <p>{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</p></a></h1>
                 </div>
               </div>
+              @endif
               @endforeach
             </div>
