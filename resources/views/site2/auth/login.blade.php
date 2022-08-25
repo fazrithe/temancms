@@ -13,11 +13,11 @@
                         <input name="email" type="email" class="form-control" required="required" placeholder="{{ __('input_email') }}">
                     </div>
                     <div class="form-group  mt-4">
-                       
+
                         <label class="mb-2 flex flex-col">{{ __('password') }}
                         </label>
-                        
-                        
+
+
                         <input name="password" type="password" class="form-control mb-2" required="required" placeholder="***********">
                         <a class="forgot-password" href="{{ route('forget-password') }}">Forgot your password?</a>
                     </div>
@@ -35,10 +35,10 @@
                     @endif
                     <button class="button-primary mt-4" type="submit">{{ __('login') }}</button>
                     <div class="middle-content mt-4 flex">
-                        <p>{{ __('dont_have_an_account') }} <a class="sign-up" href="{{ route('site.register.form') }}">{{ __('sign_up') }}</a></p> 
+                        <p>{{ __('dont_have_an_account') }} <a class="sign-up" href="{{ route('site.register.form') }}">{{ __('sign_up') }}</a></p>
                     </div>
                 </form>
-                
+
                 {{--<!-- /.contact-form -->--}}
             </div>
             {{--<!-- /.account-content -->--}}

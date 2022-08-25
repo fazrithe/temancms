@@ -1,7 +1,7 @@
  <!-- NAVBAR -->
  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ static_asset('front-end/src/image/parabel-logo.svg')}}" height="48" alt="Logo" ></a>
+      <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ static_asset(settingHelper('logo')) }}" height="48" alt="Logo" ></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             @foreach($primaryMenu as $mainMenu)
