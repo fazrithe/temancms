@@ -150,3 +150,48 @@ p {
 .first-list {
     margin-top: -200px;
 }
+.register-account {
+    padding: 56px 32px;
+    background-color: var(--neutral10);
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+}
+.button-primary {
+    background-color: var(--primaryColorTrooper);
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    width: 100%;
+    border-radius: 6px;
+}
+.button-primary:hover {
+    background-color: #51707d;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+.form-check-input:checked {
+    background-color: var(--primaryColorTrooper);
+}
+.middle-content p {
+    font-size: 14px;
+}
+.form-login {
+    margin: 80px 0 !important;
+}
+.sign-up,
+.forgot-password {
+    color: var(--primaryColorTrooper);
+    font-weight: 500;
+    font-size: 14px;
+}
+@media (max-width: 600px) {
+    .form-login {
+        padding: 0 24px;
+    }
+}

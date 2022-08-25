@@ -1,16 +1,16 @@
 footer {
     padding: 60px 0;
     margin-top: 60px;
-    background-color: var(--neutral100);
+    background-color: var(--neutral10);
     z-index: 100;
 }
 footer ul li a {
     font-size: var(--textMedium);
-    color: var(--neutral10);
+    color: var(--neutral100);
 }
 footer ul li a:hover {
     font-size: var(--textMedium);
-    color: var(--neutral40);
+    color: var(--neutral80);
 }
 footer ul li:not(:last-child) {
     margin-right: 40px;
@@ -18,7 +18,7 @@ footer ul li:not(:last-child) {
 
 footer span {
     font-size: var(--textSmall);
-    color: var(--neutral40);
+    color: var(--neutral80);
 }
 @media (max-width: 991.98px) {
     footer ul {
