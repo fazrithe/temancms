@@ -45,7 +45,7 @@
                                 <p>{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</p></a>
                             <div class="entry-meta">
                                 <ul class="global-list">
-                                    <li><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></li>
+                                    <li>{{ $post->updated_at->format('F j, Y') }}</li>
                                 </ul>
                             </div>
                         </div>

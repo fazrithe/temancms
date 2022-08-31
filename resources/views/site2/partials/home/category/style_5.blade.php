@@ -25,7 +25,7 @@
                     <div class="entry-meta mb-2">
                         <ul class="global-list">
                             <li>{{__('post_by')}} <a href="{{ route('site.author',['id' => $firstPost->user->id]) }}">{{ data_get($firstPost, 'user.first_name') }}</a></li>
-                            <li><a href="{{route('article.date', date('Y-m-d', strtotime($firstPost->updated_at)))}}">{{ $firstPost->updated_at->format('F j, Y') }}</a></li>
+                            <li>{{ $firstPost->updated_at->format('F j, Y') }}</li>
                         </ul>
                     </div>
                     <p>{!! strip_tags(\Illuminate\Support\Str::limit($firstPost->content, 120)) !!}</p>
@@ -43,7 +43,7 @@
                                 <div class="entry-meta">
                                     <ul class="global-list">
                                         <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $firstPost->user->id]) }}">{{ data_get($firstPost, 'user.first_name') }}</a></li>
-                                        <li><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></li>
+                                        <li>{{ $post->updated_at->format('F j, Y') }}</li>
                                     </ul>
                                 </div>
                             </div>

@@ -18,7 +18,7 @@
                         @endif
                     </a>
                     <div class="details-news">
-                      <span class="date"><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></span>
+                      <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
                         <h1 class="title-medium"><a href="{{ route('article.detail', ['id' => $post->slug]) }}">
                         <p>{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</p></a></h1>
                 </div>

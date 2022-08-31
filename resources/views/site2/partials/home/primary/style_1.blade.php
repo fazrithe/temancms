@@ -16,7 +16,7 @@
                                 <li>{{ __('post_by') }} <a
                                         href="{{ route('site.author',['id' => $post['user']->id]) }}">{{ data_get($post, 'user.first_name') }}</a>
                                 </li>
-                                <li><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}">{{ $post->updated_at->format('F j, Y') }}</a>
+                                <li>{{ $post->updated_at->format('F j, Y') }}
                                 </li>
                             </ul>
                         </span>
@@ -45,7 +45,7 @@
                                         </a>
                                     </div>
                                     <div class="details-news ms-3">
-                                    <span class="date"><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}"> {{ $post->updated_at->format('F j, Y') }}</a></span>
+                                    <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
                                     <h1  class="title-medium"><a href="{{ route('article.detail', ['id' => $post->slug]) }}">
                                         <p>{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</p></a></h1>
                                   </div>

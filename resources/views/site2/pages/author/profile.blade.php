@@ -90,7 +90,7 @@
                                                 <div class="entry-meta mb-2">
                                                     <ul class="global-list">
                                                         <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $post->user->id]) }}">{{ data_get($post, 'user.first_name') }}</a></li>
-                                                        <li><a href="{{route('article.date', date('Y-m-d', strtotime($post->updated_at)))}}">{{ $post->updated_at->format('F j, Y') }}</a></li>
+                                                        <li>{{ $post->updated_at->format('F j, Y') }}</li>
                                                     </ul>
                                                 </div><!-- /.entry-meta -->
                                                 <p> {!! strip_tags(\Illuminate\Support\Str::limit($post->content, 130)) !!}</p>
