@@ -2,7 +2,7 @@
 @foreach($categorySections as $categorySection)
         @php
             if($categorySection->type == 3):
-                $viewFile = 'site2.partials.home.category.'. data_get($categorySection, 'section_style', 'style_2');
+                $viewFile = 'site2.partials.home.category.'. data_get($categorySection, 'section_style', 'style_3');
             else:
                 $viewFile = 'site2.partials.home.category.latest_posts';
             endif;

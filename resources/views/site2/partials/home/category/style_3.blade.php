@@ -1,59 +1,53 @@
-@php
-    //$posts = data_get($categorySection, 'category.post', collect([]));
-    $topPosts = $posts->take(2);
-    $bottomPosts = $posts->skip(2)->take(6);
-@endphp
-
-
-<div class="sg-section">
-    <div class="section-content">
-        <div class="section-title">
-            <h1>
-                @if(data_get($categorySection, 'label') == 'videos')
-                    {{__('videos')}}
-                @else
-                    {{ \Illuminate\Support\Str::upper(data_get($categorySection, 'label')) }}
-                @endif
-            </h1>
+ <!-- LIST IDE DAN ESAI -->
+ <section id="list-ide-esai">
+    <div class="container">
+      <div class="row d-flex justify-content-center mt-2">
+        <div class="col-lg-6 list-berita-utama">
+        @foreach($posts->take(4) as $post)
+        @if($post->category_id == 3)
+          <a href="">
+            <div class=" d-flex">
+                @if(isFileExist(@$post->image, $result = @$post->image->medium_image))
+                <img src="{{ safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png')  }} "
+                     data-original=" {{basePath(@$post->image)}}/{{ $result }} "
+                     class="img-fluid lazy" width="200" alt="{!! $post->title !!}">
+            @else
+                <img src="{{ static_asset('default-image/default-358x215.png') }} "
+                     class="img-fluid" width="200" alt="{!! $post->title !!}">
+            @endif
+                <div class="details-news ms-3">
+                <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
+                <h1  class="title-medium">{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</h1>
+              </div>
+              </div>
+            </a>
+            <hr>
+            @endif
+        @endforeach
         </div>
-        <div class="row">
-            @foreach($topPosts as $firstPost)
-                <div class="col-lg-6">
-                    <div class="sg-post">
-                        @include('site.partials.home.category.first_post')
-                        <div class="entry-content">
-                            <h3 class="entry-title"><a
-                                    href="#">{!! \Illuminate\Support\Str::limit($firstPost->title, 50) !!}</a></h3>
-                            <div class="entry-meta mb-2">
-                                <ul class="global-list">
-                                    <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $firstPost->user->id]) }}">{{ data_get($firstPost, 'user.first_name') }}</a></li>
-                                </ul>
-                            </div>
-                            <p>{!! strip_tags(\Illuminate\Support\Str::limit($firstPost->content, 120)) !!}</p>
-                        </div>
-                    </div>
+        <div class="col-lg-6 list-berita-utama">
+            @foreach($posts->take(4) as $post)
+            @if($post->category_id == 4)
+            <a href="">
+              <div class=" d-flex">
+                  @if(isFileExist(@$post->image, $result = @$post->image->medium_image))
+                  <img src="{{ safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png')  }} "
+                       data-original=" {{basePath(@$post->image)}}/{{ $result }} "
+                       class="img-fluid lazy" width="200" alt="{!! $post->title !!}">
+              @else
+                  <img src="{{ static_asset('default-image/default-358x215.png') }} "
+                       class="img-fluid" width="200" alt="{!! $post->title !!}">
+              @endif
+                  <div class="details-news ms-3">
+                  <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
+                  <h1  class="title-medium">{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</h1>
                 </div>
-            @endforeach
-
-            @foreach($bottomPosts->chunk(3) as $postGroup)
-                <div class="col-lg-6">
-                    @foreach($postGroup as $post)
-                        <div class="sg-post small-post post-style-1">
-                            @include('site.partials.home.category.post_block')
-                            <div class="entry-content">
-                                <a href="{{ route('article.detail', ['id' => $post->slug]) }}"><p>{!! \Illuminate\Support\Str::limit($post->title, 25) !!}</p></a>
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $post->user->id]) }}">{{ data_get($post, 'user.first_name') }}</a></li>
-                                        <li>{{ $post->updated_at->format('F j, Y') }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
                 </div>
-            @endforeach
-
+              </a>
+              <hr>
+              @endif
+          @endforeach
         </div>
-    </div>
-</div>
+        </div>
+        </div>
+  </section>
