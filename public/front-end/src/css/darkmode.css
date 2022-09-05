@@ -93,3 +93,9 @@
 #darkmode footer span {
     color: var(--neutral40);
 }
+#darkmode h1 a {
+    color: var(--neutral10);
+}
+#darkmode h1 a p {
+    color: var(--neutral40);
+}

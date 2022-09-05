@@ -114,6 +114,9 @@ main {
     border-radius: 100px;
     background-color: transparent;
 }
+.paragraph {
+    text-align: justify;
+}
 
 p {
     color: var(--neutral80);

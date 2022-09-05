@@ -4,20 +4,7 @@
 <main id="reportase">
     <div class="container">
 
-        <div class="row first-list justify-content-center text-center">
-            <div class="col-lg-12  card-news mb-5">
-                <a href="">
-                <img class="img-fluid" src="./src/image/arah-parpol.jpg" alt="">
-                <h1 class="mt-3">Arah Parpol Nonparlemen Jelang 2024: Antara Verifikasi & Koalisi</h1>
-                <p class="summary">Apabila parpol nonparlemen bersatu dan solid, pasti akan banyak bakal capres atau koalisi partai yang akan mendekati mereka. </p>
-            </a>
-
-            <span >Penulis <a  class="author me-1" href="">Yazid Fahmi </a> 02/09/2022 </span>
-
-
-            </div>
-
-        </div>
+        
         <div class="row">
             @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 card-news mb-5">
