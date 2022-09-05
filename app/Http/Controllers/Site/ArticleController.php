@@ -38,8 +38,9 @@ class ArticleController extends Controller
 			->where('slug', $id)->first();
         $count = VisitorTracker::all()->last();
         $url   = \Request::url();
+        $ip    = \Request()->ip();
         // return $url;
-		if ($count->url !== $url) {
+		if ($count->url !== $url && $count->ip !== $ip ) {
 
 			$post->total_hit = $post->total_hit+1;
 			$post->timestamps = false;
