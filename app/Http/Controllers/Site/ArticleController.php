@@ -36,8 +36,10 @@ class ArticleController extends Controller
 			return $query->whereNull('comment_id');
 		}, 'comments.reply.user', 'comments.user'])
 			->where('slug', $id)->first();
-
-		if (!blank($post)) {
+        $count = VisitorTracker::all()->last();
+        $url   = \Request::url();
+        // return $url;
+		if ($count->url !== $url) {
 
 			$post->total_hit = $post->total_hit+1;
 			$post->timestamps = false;
@@ -48,13 +50,11 @@ class ArticleController extends Controller
 				return view('site2.pages.403');
 			}
 		} else {
-			return view('site2.pages.404');
-		}
 		$post               = Post::with(['image','quizQuestions','quizQuestions.quizAnswers','quizResults','comments'=> function ($query) {
 										return $query->whereNull('comment_id');
 									}, 'comments.reply.user', 'comments.user'])
 									->where('slug', $id)->first();
-
+                                }
 //		dd($post);
 
 		$widgetService      = new WidgetService();
