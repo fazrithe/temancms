@@ -36,11 +36,12 @@ class ArticleController extends Controller
 			return $query->whereNull('comment_id');
 		}, 'comments.reply.user', 'comments.user'])
 			->where('slug', $id)->first();
-        $count = VisitorTracker::all()->last();
-        $url   = \Request::url();
-        $ip    = \Request()->ip();
-        // return $url;
-		if ($count->url !== $url && $count->ip !== $ip ) {
+        $count = VisitorTracker::where('ip', \Request()->ip())
+        ->where('url', \Request::url())->count();
+        // $url   = \Request::url();
+        // $ip    = \Request()->ip();
+        // return $count;
+		if ($count < 1) {
 
 			$post->total_hit = $post->total_hit+1;
 			$post->timestamps = false;
@@ -55,7 +56,7 @@ class ArticleController extends Controller
 										return $query->whereNull('comment_id');
 									}, 'comments.reply.user', 'comments.user'])
 									->where('slug', $id)->first();
-                                }
+        }
 //		dd($post);
 
 		$widgetService      = new WidgetService();
