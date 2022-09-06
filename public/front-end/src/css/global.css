@@ -63,6 +63,9 @@ p {
 main {
     margin-top: 60px;
 }
+.details-news {
+    margin-top: 12px;
+}
 .details-news span {
     font-size: var(--textSmall);
     color: var(--neutral70);
@@ -196,5 +199,11 @@ p {
 @media (max-width: 600px) {
     .form-login {
         padding: 0 24px;
+    }
+    .featured-artikel {
+        margin-bottom: 60px;
+    }
+    .theiaStickySidebar img {
+        width: 100%;
     }
 }
