@@ -11,7 +11,7 @@
     </div>
     <div class="entry-thumbnail text-center" height="100%">
         @include('site2.pages.article.partials.detail_image')
-        <span class="desc-picture  mt-3 "><em> Header Periksa Fakta IFCN. parabel.id/Kiting </em></span>
+        
     </div>
     <div class="date-read mb-3 mt-3 d-flex align-items-center justify-content-between">
         <div class="d-flex">

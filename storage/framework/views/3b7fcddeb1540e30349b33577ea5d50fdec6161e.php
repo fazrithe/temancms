@@ -16,7 +16,8 @@
                                 <li><?php echo e(__('post_by')); ?> <a
                                         href="<?php echo e(route('site.author',['id' => $post['user']->id])); ?>"><?php echo e(data_get($post, 'user.first_name')); ?></a>
                                 </li>
-                                <li><a href="<?php echo e(route('article.date', date('Y-m-d', strtotime($post->updated_at)))); ?>"><?php echo e($post->updated_at->format('F j, Y')); ?></a>
+                                <li><?php echo e($post->updated_at->format('F j, Y')); ?>
+
                                 </li>
                             </ul>
                         </span>
@@ -45,7 +46,7 @@
                                         </a>
                                     </div>
                                     <div class="details-news ms-3">
-                                    <span class="date"><a href="<?php echo e(route('article.date', date('Y-m-d', strtotime($post->updated_at)))); ?>"> <?php echo e($post->updated_at->format('F j, Y')); ?></a></span>
+                                    <span class="date"><?php echo e($post->updated_at->format('F j, Y')); ?></span>
                                     <h1  class="title-medium"><a href="<?php echo e(route('article.detail', ['id' => $post->slug])); ?>">
                                         <p><?php echo \Illuminate\Support\Str::limit($post->title, 50); ?></p></a></h1>
                                   </div>

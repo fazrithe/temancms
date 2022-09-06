@@ -33,7 +33,7 @@
                 <p class="summary">{!! strip_tags(\Illuminate\Support\Str::limit($post->content, 120)) !!}</p>
             </a>
 
-            <span >Penulis <a  class="author me-1" href="{{ route('site.author',['id' => $post->user->id]) }}">{{$post->user->first_name}}  </a> {{ $post->updated_at->format('F j, Y') }}</span>
+            <span > <a  class="author me-1" href="{{ route('site.author',['id' => $post->user->id]) }}">{{$post->user->first_name}}  </a> {{ $post->updated_at->format('F j, Y') }}</span>
             </div>
             @endforeach
         </div>

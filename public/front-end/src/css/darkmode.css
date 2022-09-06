@@ -99,3 +99,6 @@
 #darkmode h1 a p {
     color: var(--neutral40);
 }
+#darkmode h3 {
+    color: var(--neutral10);
+}

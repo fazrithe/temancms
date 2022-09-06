@@ -3,8 +3,10 @@
 ?>
 
               <div class="row mt-4">
-                <?php $__currentLoopData = $posts->take(4); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $count = 0; ?>
+                <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php if($post->category_id == 2): ?>
+                <?php if($count == 4) break; ?>
                 <div class="col-lg-3 col-md-6 mb-4">
                   <a href="">
                     <a href="<?php echo e(route('article.detail', ['id' => $post->slug])); ?>">
@@ -18,11 +20,12 @@
                         <?php endif; ?>
                     </a>
                     <div class="details-news">
-                      <span class="date"><a href="<?php echo e(route('article.date', date('Y-m-d', strtotime($post->updated_at)))); ?>"> <?php echo e($post->updated_at->format('F j, Y')); ?></a></span>
+                      <span class="date"><?php echo e($post->updated_at->format('F j, Y')); ?></span>
                         <h1 class="title-medium"><a href="<?php echo e(route('article.detail', ['id' => $post->slug])); ?>">
                         <p><?php echo \Illuminate\Support\Str::limit($post->title, 50); ?></p></a></h1>
                 </div>
               </div>
+              <?php $count++; ?>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>

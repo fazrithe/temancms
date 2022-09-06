@@ -8,6 +8,7 @@
             endif;
         ?>
 
+
     <?php
         if($categorySection->type == 1):
             $posts = data_get($categorySection, 'post', collect([]));
