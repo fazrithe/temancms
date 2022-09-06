@@ -3,8 +3,9 @@
     <div class="container">
       <div class="row d-flex justify-content-center mt-2">
         <div class="col-lg-6 list-berita-utama">
-        @foreach($posts->take(4) as $post)
-        @if($post->category_id == 3)
+            <?php $count = 0; ?>
+            @foreach($posts as $post)
+            @if($post->category_id == 3)
           <a href="">
             <div class=" d-flex">
                 @if(isFileExist(@$post->image, $result = @$post->image->medium_image))
@@ -22,11 +23,13 @@
               </div>
             </a>
             <hr>
+            <?php $count++; ?>
             @endif
-        @endforeach
+            @endforeach
         </div>
         <div class="col-lg-6 list-berita-utama">
-            @foreach($posts->take(4) as $post)
+            <?php $count = 0; ?>
+            @foreach($posts as $post)
             @if($post->category_id == 4)
             <a href="">
               <div class=" d-flex">
@@ -45,8 +48,9 @@
                 </div>
               </a>
               <hr>
+              <?php $count++; ?>
               @endif
-          @endforeach
+              @endforeach
         </div>
         </div>
         </div>

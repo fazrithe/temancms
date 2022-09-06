@@ -84,15 +84,13 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_postsAuth', $seconds = 200, function () {
-                return Post::with('category', 'image', 'user')
+            $latest_posts       = Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
                     ->orderBy('id', 'desc')
                     ->where('language', LaravelLocalization::setLocale() ?? settingHelper('default_language'))
-                    ->limit(6)
+                    // ->limit(6)
                     ->get();
-            });
 
             $totalPostCount     = Cache::remember('totalPostCountAuth', $seconds = 200, function () {
                 return Post::where('visibility', 1)
@@ -164,8 +162,7 @@ class HomeController extends Controller
                     ->get();
             });
 
-            $latest_posts       = Cache::remember('latest_posts', $seconds = 200, function () {
-                return Post::with('category', 'image', 'user')
+            $latest_posts       = Post::with('category', 'image', 'user')
                     ->where('visibility', 1)
                     ->where('status', 1)
                     ->when(Sentinel::check() == false, function ($query) {
@@ -175,7 +172,7 @@ class HomeController extends Controller
                     ->where('language', LaravelLocalization::setLocale() ?? settingHelper('default_language'))
                     ->limit(6)
                     ->get();
-            });
+
 
             $totalPostCount     = Cache::remember('totalPostCount', $seconds = 200, function () {
                 return Post::where('visibility', 1)
