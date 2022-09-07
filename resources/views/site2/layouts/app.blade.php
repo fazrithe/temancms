@@ -50,16 +50,16 @@
         <div class="col-lg-6 ">
           <ul class="d-flex text-center">
             <li>
-             <a href=""> Tentang Kami </a>
+             <a href="{{ url('page/tentang-kami') }}"> Tentang Kami </a>
             </li>
             <li>
-              <a href=""> Redaksi </a>
+              <a href="{{ url('page/redaksi') }}"> Redaksi </a>
             </li>
             <li>
-              <a href=""> Kontak Kami</a>
+              <a href="{{ url('page/contact-us') }}"> Kontak Kami</a>
             </li>
             <li>
-              <a href=""> Pedoman Media Siber</a>
+              <a href="{{ url('page/pedoman-media-siber') }}"> Pedoman Media Siber</a>
             </li>
           </ul>
         </div>
