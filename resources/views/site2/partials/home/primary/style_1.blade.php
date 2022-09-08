@@ -13,9 +13,9 @@
                     <div class="details-news">
                         <span class="date">
                             <ul class="global-list">
-                                <li>{{ __('post_by') }} <a
+                                {{-- <li>{{ __('post_by') }} <a
                                         href="{{ route('site.author',['id' => $post['user']->id]) }}">{{ data_get($post, 'user.first_name') }}</a>
-                                </li>
+                                </li> --}}
                                 <li>{{ $post->updated_at->format('F j, Y') }}
                                 </li>
                             </ul>
