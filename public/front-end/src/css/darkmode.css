@@ -102,3 +102,9 @@
 #darkmode h3 {
     color: var(--neutral10);
 }
+#darkmode .bi {
+    color: var(--neutral10);
+}
+#darkmode .text-end {
+    color: var(--neutral10);
+}
