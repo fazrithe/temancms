@@ -61,7 +61,7 @@ p {
     font-weight: 400 !important;
 }
 main {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 .details-news {
     margin-top: 12px;
@@ -201,9 +201,6 @@ p {
         padding: 0 24px;
     }
     .featured-artikel {
-        margin-bottom: 60px;
-    }
-    .theiaStickySidebar img {
-        width: 100%;
+        margin-bottom: 59px;
     }
 }
