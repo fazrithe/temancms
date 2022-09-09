@@ -2,19 +2,15 @@
 
 @section('content')
     <div class="sg-page-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 col-lg-8 sg-sticky">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <h1 class="text-center text-bold mb-5">Hasil Pencarian </h1>
+                <div class="col-lg-6 ">
                     <div class="theiaStickySidebar">
                         <div class="sg-section mb-2">
                             <div class="section-content search-content">
                                 <div class="sg-search">
-                                    <div class="search-form">
-                                        <form action="{{ route('article.search') }}" id="search" method="GET">
-                                            <input class="form-control" name="search" type="text" value="{{ request()->get('search', '') }}" placeholder="{{ __('search')  }}">
-                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
+                                   
                                 </div>
                                 <div class="latest-post-area">
                                     @if(!blank($posts))
@@ -24,9 +20,9 @@
                                                     <div class="entry-thumbnail">
                                                         <a href="{{ route('article.detail', ['id' => $post->slug]) }}">
                                                             @if(isFileExist($post->image, $result =  @$post->image->medium_image))
-                                                                <img src="{{safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png') }} " data-original=" {{basePath($post->image)}}/{{ $result }} " class="img-fluid"   alt="{!! $post->title !!}"  >
+                                                                <img src="{{safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png') }} " data-original=" {{basePath($post->image)}}/{{ $result }} " width="100%"   alt="{!! $post->title !!}"  >
                                                             @else
-                                                                <img src="{{static_asset('default-image/default-358x215.png') }} "  class="img-fluid"   alt="{!! $post->title !!}" >
+                                                                <img src="{{static_asset('default-image/default-358x215.png') }} "  width="100%"  alt="{!! $post->title !!}" >
                                                             @endif
                                                         </a>
                                                     </div>
@@ -40,10 +36,10 @@
                                                         </div>
                                                     @endif
                                                 </div>
-                                                <div class="category">
+                                                <div class="category  mt-4">
                                                     <ul class="global-list">
                                                         @isset($post->category->category_name)
-                                                            <li><a href="{{ url('category',$post->category->slug) }}">{{ $post->category->category_name }}</a></li>
+                                                            <li><a class="tags" href="{{ url('category',$post->category->slug) }}">{{ $post->category->category_name }}</a></li>
                                                         @endisset
                                                     </ul>
                                                 </div>
@@ -53,11 +49,11 @@
                                                     </h3>
                                                     <div class="entry-meta mb-2">
                                                         <ul class="global-list">
-                                                            <li>{{ __('post_by') }} <a href="{{ route('site.author',['id' => $post->user->id]) }}">{{$post->user->first_name}} </a></li>
+                                                            {{$post->user->first_name}} </a></li>
                                                             <li>{{ $post->updated_at->format('F j, Y') }}</li>
                                                         </ul>
                                                     </div>
-                                                    <p>{!! strip_tags(\Illuminate\Support\Str::limit($post->content, 120)) !!}</p>
+                                                    <p class="mb-5">{!! strip_tags(\Illuminate\Support\Str::limit($post->content, 120)) !!}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -69,14 +65,14 @@
                                     <div class="col-sm-12 col-xs-12 d-none" id="latest-preloader-area">
                                         <div class="row latest-preloader">
                                             <div class="col-md-7 offset-md-5">
-                                                <img src="{{static_asset('site/images/')}}/preloader-2.gif" alt="Image" class="tr-preloader img-fluid">
+                                                <img width="100%" src="{{static_asset('site/images/')}}/preloader-2.gif" alt="Image" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="row">
-                                            <button class="btn-load-more {{ $totalPostCount > 6? '':'d-none'}}" id="btn-load-more-search"> {{ __('load_more') }} </button>
-                                            <button class="btn-load-more {{ $totalPostCount > 6? 'd-none':''}}" id="no-more-data-search">
+                                            <button class="button-primary mt-3 {{ $totalPostCount > 6? '':'d-none'}}" id="btn-load-more-search"> {{ __('load_more') }} </button>
+                                            <button class="button-primary mt-3 {{ $totalPostCount > 6? 'd-none':''}}" id="no-more-data-search">
                                                 {{ __('no_more_records') }}                                            </button>
                                             <input type="hidden" id="url" value="{{ url('') }}">
                                         </div>
@@ -86,11 +82,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-lg-4 sg-sticky">
+                {{-- <div class="col-md-5 col-lg-4 sg-sticky">
                     <div class="sg-sidebar theiaStickySidebar">
                         @include('site2.partials.right_sidebar_widgets')
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

@@ -108,3 +108,15 @@
 #darkmode .text-end {
     color: var(--neutral10);
 }
+#darkmode h3 a {
+    color: var(--neutral10);
+}
+#darkmode ul li a {
+    color: var(--neutral50);
+}
+#darkmode .tags {
+    color: #0f172a;
+}
+#darkmode ul li {
+    color: var(--neutral50);
+}
