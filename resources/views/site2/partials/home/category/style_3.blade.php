@@ -6,7 +6,6 @@
             <?php $count = 0; ?>
             @foreach($posts as $post)
             @if($post->category_id == 3)
-          <a href="">
             <div class=" d-flex">
                 @if(isFileExist(@$post->image, $result = @$post->image->medium_image))
                 <img src="{{ safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png')  }} "
@@ -18,10 +17,11 @@
             @endif
                 <div class="details-news ms-3">
                 <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
+                <a href="{{ route('article.detail', ['id' => $post->slug]) }}">
                 <h1  class="title-medium">{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</h1>
+                </a>
+            </div>
               </div>
-              </div>
-            </a>
             <hr>
             <?php $count++; ?>
             @endif
@@ -31,7 +31,6 @@
             <?php $count = 0; ?>
             @foreach($posts as $post)
             @if($post->category_id == 4)
-            <a href="">
               <div class=" d-flex">
                   @if(isFileExist(@$post->image, $result = @$post->image->medium_image))
                   <img src="{{ safari_check() ? basePath(@$post->image).'/'.$result : static_asset('default-image/default-358x215.png')  }} "
@@ -43,10 +42,11 @@
               @endif
                   <div class="details-news ms-3">
                   <span class="date">{{ $post->updated_at->format('F j, Y') }}</span>
+                  <a href="{{ route('article.detail', ['id' => $post->slug]) }}">
                   <h1  class="title-medium">{!! \Illuminate\Support\Str::limit($post->title, 50) !!}</h1>
+                  </a>
                 </div>
                 </div>
-              </a>
               <hr>
               <?php $count++; ?>
               @endif
