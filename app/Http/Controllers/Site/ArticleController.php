@@ -479,7 +479,7 @@ class ArticleController extends Controller
     {
         $widgetService = new WidgetService();
         $widgets = $widgetService->getWidgetDetails();
-        $socialMedias       = SocialMedia::where('status', 1)->get();
+        // $socialMedias       = SocialMedia::where('status', 1)->get();
         try{
             $posts = Post::where(DB::raw('LOWER(title)'), 'like', '%' . strtolower($request->get('search')) . '%')
                 ->when(Sentinel::check() == false, function ($query) {
@@ -492,7 +492,7 @@ class ArticleController extends Controller
                     $query->where('auth_required', 0);
                 })->count();
 
-            return view('site2.pages.search', compact('posts','totalPostCount','widgets','socialMedias '));
+            return view('site2.pages.search', compact('posts','totalPostCount','widgets'));
         } catch (\Exception $e) {
             return view('site2.pages.404');
         }
