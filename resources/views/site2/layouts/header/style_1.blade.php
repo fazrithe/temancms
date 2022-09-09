@@ -23,7 +23,7 @@
                     <button type="submit" name="search"><i class="fa fa-search"></i></button>
                 </form> --}}
                 <form class="d-flex" action="{{ route('article.search') }}" id="search" method="GET" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Cari berita" aria-label="Search" />
+                  <input class="form-control me-2" type="search" name="search" placeholder="Cari berita" aria-label="Search" />
                   <button class="button-icon" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path
@@ -160,7 +160,7 @@
                 @endforeach
             </ul>
 
-              <form class="d-flex" role="search">
+              <form class="d-flex" role="search" action="{{ route('article.search') }}" id="search" method="GET">
                 <input class="form-control me-2" type="search" placeholder="Cari berita" aria-label="Search" />
                 <button class="button-icon" type="submit">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

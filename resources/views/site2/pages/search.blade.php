@@ -4,13 +4,13 @@
     <div class="sg-page-content">
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <h1 class="text-center text-bold mb-5">Hasil Pencarian </h1>
+                <h1 class="text-center text-bold mb-5">Hasil Pencarian {{$search}} </h1>
                 <div class="col-lg-6 ">
                     <div class="theiaStickySidebar">
                         <div class="sg-section mb-2">
                             <div class="section-content search-content">
                                 <div class="sg-search">
-                                   
+
                                 </div>
                                 <div class="latest-post-area">
                                     @if(!blank($posts))
