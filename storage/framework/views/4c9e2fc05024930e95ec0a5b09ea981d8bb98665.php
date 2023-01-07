@@ -380,6 +380,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-group text-center">
+                                            <label for="post_language"><?php echo e(__('Title Image')); ?></label>
+                                            <input type="text" class="form-control" name="title_image">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="add-new-page  bg-white p-20 m-b-20">
                                 <div class="col-sm-12">

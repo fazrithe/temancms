@@ -123,6 +123,7 @@ class PostController extends Controller
         $post->category_id      = $request->category_id;
         $post->sub_category_id  = $request->sub_category_id;
         $post->image_id         = $request->image_id;
+        $post->title_image      = $request->title_image;
         if($type == 'video'):
             if($request->video_url_type != null){
                 Validator::make($request->all(), [
@@ -397,7 +398,7 @@ class PostController extends Controller
         $post->category_id      = $request->category_id;
         $post->sub_category_id  = $request->sub_category_id;
         $post->image_id         = $request->image_id;
-
+        $post->title_image      = $request->title_image;
         if(isset($request->video_id)):
             $post->video_id     = $request->video_id;
         endif;
