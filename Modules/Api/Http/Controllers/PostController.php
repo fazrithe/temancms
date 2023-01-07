@@ -106,7 +106,7 @@ class PostController extends Controller
             $post['tags'] = [];
         endif;
 
-        $post['url'] = route('article.detail', ['id' => $post['slug']]);
+        // $post['url'] = route('article.detail', ['id' => $post['slug']]);
 
         if(isset($post['contents'])):
             foreach ($post['contents'] as $content):
@@ -516,7 +516,7 @@ class PostController extends Controller
         $home_content['top_stories']['tags'] = $tags;
 
 
-        
+
 
         @$categories         = Category::where('is_featured',1)->where('language', $language)->get();
 

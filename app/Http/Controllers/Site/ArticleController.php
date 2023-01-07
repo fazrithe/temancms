@@ -52,7 +52,7 @@ class ArticleController extends Controller
 				return view('site2.pages.403');
 			}
 		} else {
-		$post               = Post::with(['image','quizQuestions','quizQuestions.quizAnswers','quizResults','comments'=> function ($query) {
+		$post               = Post::with(['user','image','quizQuestions','quizQuestions.quizAnswers','quizResults','comments'=> function ($query) {
 										return $query->whereNull('comment_id');
 									}, 'comments.reply.user', 'comments.user'])
 									->where('slug', $id)->first();
@@ -147,7 +147,7 @@ class ArticleController extends Controller
 		$tracker->save();
         $socialMedias       = SocialMedia::where('status', 1)->get();
 //		dd($post);
-
+        // return json_encode($post);
 		return view('site2.pages.article_detail', compact('post', 'socialMedias', 'widgets', 'socialLinks', 'relatedPost', 'tracks', 'post_contents'));
 	}
 
