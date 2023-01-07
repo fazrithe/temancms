@@ -18,7 +18,8 @@
                         </label>
 
 
-                        <input name="password" type="password" class="form-control mb-2" required="required" placeholder="***********">
+                        <input name="password" type="password" class="form-control mb-2" id="inputPassword" required="required" placeholder="***********">
+                        <input type="checkbox" class="form-check-input" id="show-password">   <label class="mb-2 flex flex-col">Tampilkan Password</label><br>
                         <a class="forgot-password" href="{{ route('forget-password') }}">Forgot your password?</a>
                     </div>
                     <div class="mt-4 form-check">
@@ -48,4 +49,15 @@
     </div>
     {{--<!-- /.ragister-account -->--}}
 @endsection
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#show-password').click(function() {
+            if ($(this).is(':checked')) {
+                $('#inputPassword').attr('type', 'text');
+            } else {
+                $('#inputPassword').attr('type', 'password');
+            }
+        });
+    });
+</script>

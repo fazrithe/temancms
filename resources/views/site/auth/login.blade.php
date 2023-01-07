@@ -1,4 +1,4 @@
-@extends('site.layouts.app') 
+@extends('site.layouts.app')
 @section('content')
     <div class="ragister-account text-center">
         <div class="container">
@@ -31,10 +31,10 @@
                 <div class="widget-social">
                     <ul class="global-list">
                         @if(settingHelper('facebook_visibility') == 1)
-                            <li class="facebook login"><a href="{{ url('/login/facebook') }}" style="background:#056ED8"><span style="background:#0061C2"><i class="fa fa-facebook" aria-hidden="true"></i></span>{{ __('login_with_facebook') }}</a></li>  
+                            <li class="facebook login"><a href="{{ url('/login/facebook') }}" style="background:#056ED8"><span style="background:#0061C2"><i class="fa fa-facebook" aria-hidden="true"></i></span>{{ __('login_with_facebook') }}</a></li>
                         @endif
-                        @if(settingHelper('google_visibility') == 1)    
-                            <li class="google login"><a href="{{ url('/login/google') }}" style="background:#FF5733"><span style="background:#CD543A"><i class="fa fa-google" aria-hidden="true"></i></span>{{ __('login_with_google') }}</a></li>  
+                        @if(settingHelper('google_visibility') == 1)
+                            <li class="google login"><a href="{{ url('/login/google') }}" style="background:#FF5733"><span style="background:#CD543A"><i class="fa fa-google" aria-hidden="true"></i></span>{{ __('login_with_google') }}</a></li>
                         @endif
                     </ul>
                 </div>

@@ -18,7 +18,8 @@
                         </label>
 
 
-                        <input name="password" type="password" class="form-control mb-2" required="required" placeholder="***********">
+                        <input name="password" type="password" class="form-control mb-2" id="inputPassword" required="required" placeholder="***********">
+                        <input type="checkbox" class="form-check-input" id="show-password">   <label class="mb-2 flex flex-col">Tampilkan Password</label><br>
                         <a class="forgot-password" href="<?php echo e(route('forget-password')); ?>">Forgot your password?</a>
                     </div>
                     <div class="mt-4 form-check">
@@ -50,6 +51,17 @@
     </div>
     
 <?php $__env->stopSection(); ?>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#show-password').click(function() {
+            if ($(this).is(':checked')) {
+                $('#inputPassword').attr('type', 'text');
+            } else {
+                $('#inputPassword').attr('type', 'password');
+            }
+        });
+    });
+</script>
 
 <?php echo $__env->make('site2.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\temancms\resources\views/site2/auth/login.blade.php ENDPATH**/ ?>
